@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Dispositivo bloqueado</title>
+
+  <style>
+    :root {
+      --bg: #002233;
+      --text: #ffffff;
+      --muted: #cfd9e0;
+      --link: #00dbff;
+      --font: "Verdana", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 32px 16px;
+      overflow-x: hidden;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .main-image {
+      width: 342px;
+      height: 218px;
+      object-fit: contain;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-top: 8px;
+    }
+
+    p.description {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .contacts {
+      font-size: 14px;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    .contacts a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    .contacts a:hover {
+      text-decoration: underline;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 40px;
+      width: 100%;
+      max-width: 450px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .grid-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .grid-item img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+    }
+
+    .grid-item a {
+        text-decoration: none;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .grid-item span {
+      font-size: 14px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    footer {
+      margin-top: 48px; /* espaço abaixo do grid */
+    }
+
+    footer img {
+      width: 120px;
+      height: auto;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        max-width: 340px;
+      }
+
+      .grid-item img {
+        width: 50px;
+        height: 50px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      p.description {
+        font-size: 14px;
+      }
+    }
+ 
+  </style>
+
+  <script>
+		var 
+        appsPlaceHolder = ["<MCDisp0>", "<MCDisp1>", "<MCDisp2>", "<MCDisp3>", "<MCDisp4>", "<MCDisp5>", "<MCDisp6>", "<MCDisp7>", "<MCDisp8>", "<MCDisp9>", "<MCDisp10>", "<MCDisp11>", "<MCDisp12>", "<MCDisp13>", "<MCDisp14>", "<MCDisp15>", "<MCDisp16>", "<MCDisp17>", "<MCDisp18>", "<MCDisp19>", "<MCDisp20>", "<MCDisp21>", "<MCDisp22>", "<MCDisp23>", "<MCDisp24>", "<MCDisp25>", "<MCDisp26>", "<MCDisp27>", "<MCDisp28>", "<MCDisp29>", "<MCDisp30>", "<MCDisp31>", "<MCDisp32>", "<MCDisp33>", "<MCDisp34>", "<MCDisp35>", "<MCDisp36>", "<MCDisp37>", "<MCDisp38>", "<MCDisp39>", "<MCDisp40>", "<MCDisp41>", "<MCDisp42>", "<MCDisp43>", "<MCDisp44>", "<MCDisp45>", "<MCDisp46>", "<MCDisp47>", "<MCDisp48>", "<MCDisp49>", "<MCDisp50>", "<MCDisp51>", "<MCDisp52>", "<MCDisp53>", "<MCDisp54>", "<MCDisp55>", "<MCDisp56>", "<MCDisp57>", "<MCDisp58>", "<MCDisp59>", "<MCDisp60>", "<MCDisp61>", "<MCDisp62>", "<MCDisp63>", "<MCDisp64>", "<MCDisp65>", "<MCDisp66>", "<MCDisp67>", "<MCDisp68>", "<MCDisp69>", "<MCDisp70>", "<MCDisp71>", "<MCDisp72>", "<MCDisp73>", "<MCDisp74>", "<MCDisp75>", "<MCDisp76>", "<MCDisp77>", "<MCDisp78>", "<MCDisp79>", "<MCDisp80>", "<MCDisp81>", "<MCDisp82>", "<MCDisp83>", "<MCDisp84>", "<MCDisp85>", "<MCDisp86>", "<MCDisp87>", "<MCDisp88>", "<MCDisp89>", "<MCDisp90>", "<MCDisp91>", "<MCDisp92>", "<MCDisp93>", "<MCDisp94>", "<MCDisp95>", "<MCDisp96>", "<MCDisp97>", "<MCDisp98>", "<MCDisp99>"],
+        linksPlaceHolder = ["<MCLink0>", "<MCLink1>", "<MCLink2>", "<MCLink3>", "<MCLink4>", "<MCLink5>", "<MCLink6>", "<MCLink7>", "<MCLink8>", "<MCLink9>", "<MCLink10>", "<MCLink11>", "<MCLink12>", "<MCLink13>", "<MCLink14>", "<MCLink15>", "<MCLink16>", "<MCLink17>", "<MCLink18>", "<MCLink19>", "<MCLink20>", "<MCLink21>", "<MCLink22>", "<MCLink23>", "<MCLink24>", "<MCLink25>", "<MCLink26>", "<MCLink27>", "<MCLink28>", "<MCLink29>", "<MCLink30>", "<MCLink31>", "<MCLink32>", "<MCLink33>", "<MCLink34>", "<MCLink35>", "<MCLink36>", "<MCLink37>", "<MCLink38>", "<MCLink39>", "<MCLink40>", "<MCLink41>", "<MCLink42>", "<MCLink43>", "<MCLink44>", "<MCLink45>", "<MCLink46>", "<MCLink47>", "<MCLink48>", "<MCLink49>", "<MCLink50>", "<MCLink51>", "<MCLink52>", "<MCLink53>", "<MCLink54>", "<MCLink55>", "<MCLink56>", "<MCLink57>", "<MCLink58>", "<MCLink59>", "<MCLink60>", "<MCLink61>", "<MCLink62>", "<MCLink63>", "<MCLink64>", "<MCLink65>", "<MCLink66>", "<MCLink67>", "<MCLink68>", "<MCLink69>", "<MCLink70>", "<MCLink71>", "<MCLink72>", "<MCLink73>", "<MCLink74>", "<MCLink75>", "<MCLink76>", "<MCLink77>", "<MCLink78>", "<MCLink79>", "<MCLink80>", "<MCLink81>", "<MCLink82>", "<MCLink83>", "<MCLink84>", "<MCLink85>", "<MCLink86>", "<MCLink87>", "<MCLink88>", "<MCLink89>", "<MCLink90>", "<MCLink91>", "<MCLink92>", "<MCLink93>", "<MCLink94>", "<MCLink95>", "<MCLink96>", "<MCLink97>", "<MCLink98>", "<MCLink99>"],
+		    imagesPlaceHolder = ["<MCDispImg0>", "<MCDispImg1>", "<MCDispImg2>", "<MCDispImg3>", "<MCDispImg4>", "<MCDispImg5>", "<MCDispImg6>", "<MCDispImg7>", "<MCDispImg8>", "<MCDispImg9>", "<MCDispImg10>", "<MCDispImg11>", "<MCDispImg12>", "<MCDispImg13>", "<MCDispImg14>", "<MCDispImg15>", "<MCDispImg16>", "<MCDispImg17>", "<MCDispImg18>", "<MCDispImg19>", "<MCDispImg20>", "<MCDispImg21>", "<MCDispImg22>", "<MCDispImg23>", "<MCDispImg24>", "<MCDispImg25>", "<MCDispImg26>", "<MCDispImg27>", "<MCDispImg28>", "<MCDispImg29>", "<MCDispImg30>", "<MCDispImg31>", "<MCDispImg32>", "<MCDispImg33>", "<MCDispImg34>", "<MCDispImg35>", "<MCDispImg36>", "<MCDispImg37>", "<MCDispImg38>", "<MCDispImg39>", "<MCDispImg40>", "<MCDispImg41>", "<MCDispImg42>", "<MCDispImg43>", "<MCDispImg44>", "<MCDispImg45>", "<MCDispImg46>", "<MCDispImg47>", "<MCDispImg48>", "<MCDispImg49>", "<MCDispImg50>", "<MCDispImg51>", "<MCDispImg52>", "<MCDispImg53>", "<MCDispImg54>", "<MCDispImg55>", "<MCDispImg56>", "<MCDispImg57>", "<MCDispImg58>", "<MCDispImg59>", "<MCDispImg60>", "<MCDispImg61>", "<MCDispImg62>", "<MCDispImg63>", "<MCDispImg64>", "<MCDispImg65>", "<MCDispImg66>", "<MCDispImg67>", "<MCDispImg68>", "<MCDispImg69>", "<MCDispImg70>", "<MCDispImg71>", "<MCDispImg72>", "<MCDispImg73>", "<MCDispImg74>", "<MCDispImg75>", "<MCDispImg76>", "<MCDispImg77>", "<MCDispImg78>", "<MCDispImg79>", "<MCDispImg80>", "<MCDispImg81>", "<MCDispImg82>", "<MCDispImg83>", "<MCDispImg84>", "<MCDispImg85>", "<MCDispImg86>", "<MCDispImg87>", "<MCDispImg88>", "<MCDispImg89>", "<MCDispImg90>", "<MCDispImg91>", "<MCDispImg92>", "<MCDispImg93>", "<MCDispImg94>", "<MCDispImg95>", "<MCDispImg96>", "<MCDispImg97>", "<MCDispImg98>", "<MCDispImg99>"],
+		    imagesPlaceHolderExe = ["<MCExeicon0>", "<MCExeicon1>", "<MCExeicon2>", "<MCExeicon3>", "<MCExeicon4>", "<MCExeicon5>", "<MCExeicon6>", "<MCExeicon7>", "<MCExeicon8>", "<MCExeicon9>", "<MCExeicon10>", "<MCExeicon11>", "<MCExeicon12>", "<MCExeicon13>", "<MCExeicon14>", "<MCExeicon15>", "<MCExeicon16>", "<MCExeicon17>", "<MCExeicon18>", "<MCExeicon19>", "<MCExeicon20>", "<MCExeicon21>", "<MCExeicon22>", "<MCExeicon23>", "<MCExeicon24>", "<MCExeicon25>", "<MCExeicon26>", "<MCExeicon27>", "<MCExeicon28>", "<MCExeicon29>", "<MCExeicon30>", "<MCExeicon31>", "<MCExeicon32>", "<MCExeicon33>", "<MCExeicon34>", "<MCExeicon35>", "<MCExeicon36>", "<MCExeicon37>", "<MCExeicon38>", "<MCExeicon39>", "<MCExeicon40>", "<MCExeicon41>", "<MCExeicon42>", "<MCExeicon43>", "<MCExeicon44>", "<MCExeicon45>", "<MCExeicon46>", "<MCExeicon47>", "<MCExeicon48>", "<MCExeicon49>", "<MCExeicon50>", "<MCExeicon51>", "<MCExeicon52>", "<MCExeicon53>", "<MCExeicon54>", "<MCExeicon55>", "<MCExeicon56>", "<MCExeicon57>", "<MCExeicon58>", "<MCExeicon59>", "<MCExeicon60>", "<MCExeicon61>", "<MCExeicon62>", "<MCExeicon63>", "<MCExeicon64>", "<MCExeicon65>", "<MCExeicon66>", "<MCExeicon67>", "<MCExeicon68>", "<MCExeicon69>", "<MCExeicon70>", "<MCExeicon71>", "<MCExeicon72>", "<MCExeicon73>", "<MCExeicon74>", "<MCExeicon75>", "<MCExeicon76>", "<MCExeicon77>", "<MCExeicon78>", "<MCExeicon79>", "<MCExeicon80>", "<MCExeicon81>", "<MCExeicon82>", "<MCExeicon83>", "<MCExeicon84>", "<MCExeicon85>", "<MCExeicon86>", "<MCExeicon87>", "<MCExeicon88>", "<MCExeicon89>", "<MCExeicon90>", "<MCExeicon91>", "<MCExeicon92>", "<MCExeicon93>", "<MCExeicon94>", "<MCExeicon95>", "<MCExeicon96>", "<MCExeicon97>", "<MCExeicon98>", "<MCExeicon99>"],
+		
+        backgroundImage = [],
+		    logoImage = [],
+        footerImage = [],
+		    apps = [],
+        scripts = [],
+		    customDataArr = [];
+
+        function generateApps() {
+            appsPlaceHolder.forEach(function(app, e) {
+                if (app === "" || app === null || app.includes("<MC")) return;
+
+
+                if (typeof app !== "undefined") {
+                    var appImage = imagesPlaceHolder[e] !== "" ? imagesPlaceHolder[e] : imagesPlaceHolderExe[e] !== "null.png" ? imagesPlaceHolderExe[e] : backupIcon;
+                    var linkHolder = linksPlaceHolder[e],
+                    displayName = app;
+
+                    if (displayName.toLowerCase().startsWith("background")) {
+                        backgroundImage.push({ image: appImage });
+                    } else if (displayName.toLowerCase().startsWith("logo")) {
+                        logoImage.push({ link: linkHolder, image: appImage });
+                    } else if (displayName.toLowerCase().startsWith("footer")) {
+                        footerImage.push({ link: linkHolder, image: appImage });
+                    } else if (displayName.startsWith("MCScript")) {
+                        var disName = displayName.replace("MCScript", "");
+                        scripts.push({ name: disName, link: linkHolder});
+                    } else if (displayName !== null && displayName !== "" && !displayName.includes("MCDisp")) {
+                        apps.push({ name: displayName, link: linkHolder, image: appImage });
+                    }
+                }
+            });
+
+            RenderApps();
+        }
+
+        function RenderApps() {
+            // Rendering Home screen items to grid.
+            const grid = document.getElementById('grid');
+            grid.innerHTML = apps.map(item => `
+                        <div class="grid-item">
+                            <a href="${item.link}">
+                            <img src="${item.image}" alt="${item.name}">
+                            <span>${item.name}</span>
+                            </a>
+                        </div>
+                    `).join('');
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            generateApps();
+        });
+    </script>
+
+</head>
+<body>
+  <main>
+
+    <!-- Header -->
+      <img src="data:image/webp;base64,UklGRlACAABXRUJQVlA4TEQCAAAvdkAIELcgFkzmL90Xw/zPP0G2Ld4JXoJJmmo7BjUAABzbBwAALdu2wtTS5oQ8boxBCw+r/32FILH0P6L/E6BB20ql3Bf91LAVTj3Zzwi3yni23/BXebvefoAVprp9u3+V2bfvZlwYv1q64rjK7H/1vOJ1csvjqRNzhZpjZ83jdynknNee5ZzXJtxKBWpJJuk1Usu+P+tIPSmMZ0lL4bSYpJ1xlwzw3g7sksw5d5PqWYlBbXycEab9MXz7FGfUg+jWPWjQkvest7u7V6C6uyf90XXvsCm5u1egursfcxJATik9ANZO3YPe3Xyo+wCSWqN9RWnxBlObgKL+jAP4T+0BHE0xTbTHBVtzqLs3x0c8gGfHUkpRsGlyqtMKkHX6AF4fsQOUPS7qs2l6nOZAOluB+hGxaWu5W6ML/Yp4FgE+QvtJe5cIF9Qr1k+ooZNPlMoAu3jOu3HFdpYAnxAcuDcrwNpIIW5HqU0VuM2xwrQn4NYLDpQJigCbZA4ckpYYF3V3AAHcZvxV5q0Abs3iAGmGNoAoB1ySHIgdG8DTO/FFO0sv2hzXTOuaoifgd8CteQIva24j4MnOwlboTzNvzqtNCk5/VRsBainFAbK8BzyTSWHNlXPNkvlIMU2S1c6ufmHUTWUAcGe4zpOS9zzp/D2lpug0HAPFpGPs3TK2xBjDgBSPUo6oUYsxLmOyGBeNWjpyznmLkhSv2Ma+72ue23ezx6yX6dsnn1F3/UB7vFdMv9EedegZ9TstlV7Zg36spSNvph8J" alt="Logo TOTVS" />
+      
+    <!-- Imagem principal -->
+    <img src="data:image/webp;base64,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" alt="Dispositivo bloqueado" class="main-image" />
+
+    <!-- Título e texto -->
+    <h1>Dispositivo bloqueado!</h1>
+    <p class="description">
+      Devido à falta de comunicação com o sistema de gestão de dispositivos móveis,<br />
+      seu dispositivo está temporariamente bloqueado.
+    </p>
+
+    <div class="contacts"> 
+      Regularize entrando em contato com:<br />
+      <strong style="color: #00dbff;">telefonia.movel@totvs.com.br</strong>
+    </div>
+
+    <!-- Grid de 4 itens -->
+    <div class="grid" id="grid">
+
+    </div>
+  </main>
+</body>
+</html>
